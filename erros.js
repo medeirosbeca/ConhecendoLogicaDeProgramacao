@@ -3,8 +3,9 @@ try {
     const resultado = 10 / divisor;
     console.log("O resultado é:", resultado);
   } catch (error) {
-    console.error("Erro:", error.message);
+    
   }
+  console.error("Erro:", error.message);
   
   /* 1. Crie um programa que recebe do teclado um número e tenta dividir por zero dentro de um bloco
   try...catch. Capture o erro e o exiba "Erro: Divisão por zero" no console.
