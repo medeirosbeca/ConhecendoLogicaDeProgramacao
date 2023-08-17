@@ -46,11 +46,11 @@ dentro de um bloco try...catch. Capture o erro e o exiba "Erro: Conversão invá
 
 var readlineSync = require('readline-sync');
 try {
-   let texto = readlineSync.question("Digite seu nome:");
-   const numero = parseInt(texto);
-   if (isNaN(numero))
+   let texto;
+   const numero = parseInt(readlineSync.question("Digite seu nome:"));
+   
    throw 'Operação Inválida';
-   console.log('Numero:', numero);
+   
  } catch (e) {
      console.log('"Erro": Conversão inválida');
  }
