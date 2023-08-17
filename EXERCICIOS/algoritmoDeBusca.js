@@ -3,16 +3,16 @@
 array = [15, 8, 10, 25, 12, 30, 5, 20, 18, 7];
 verificarNumero = 20;
 
-function arrayLinear (array, verificarNumero){
+function buscaLinear (array, verificarNumero){
      for (indice = 0; indice < array.length -1; indice++){
          if (indice === verificarNumero){
              return -1;
          }
      }    
  }
- arrayLinear = [15,8,10,25,12,30,5,20,18,7];
+arrayLinear = [15,8,10,25,12,30,5,20,18,7];
 verificarElemento = 20;
-indiceEncontrado = buscaBinaria (arrayLinear, verificarElemento);
+indiceEncontrado = buscaLinear (arrayLinear, verificarElemento);
 if (indiceEncontrado !== -1){
     console.log(`O elemento ${verificarElemento} foi encontrado no indice ${indiceEncontrado}`);
 } else {
