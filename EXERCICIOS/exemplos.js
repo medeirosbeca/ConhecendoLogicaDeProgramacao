@@ -1,46 +1,26 @@
-class Person {
-    constructor(name, age) {
-      this.name = name;
-      this.age = age;
-      this.child = null;
+function buscaBinaria (array, verificarNumero){
+    let inicio = 0;
+    let fim = array.length -1;
+    while (inicio <= fim){
+        const meio = Math.floor ((inicio+fim)/2)
+    
+    if (array[meio] === verificarNumero){
+        return meio;
     }
-  }
-  
-  class FamilyLinkedList {
-    constructor() {
-      this.head = null;
+    if (array[meio] > verificarNumero){
+        return fim = meio-1;
+    } else{
+        inicio = meio+1;
     }
-  
-    append(person) {
-      if (!this.head) {
-        this.head = person;
-        return;
-      }
-      let current = this.head;
-      while (current.child) {
-        current = current.child;
-      }
-      current.child = person;
     }
-  
-    print() {
-      let current = this.head;
-      while (current) {
-        console.log(`Name: ${current.name}, Age: ${current.age}`);
-        if (current.child) {
-          console.log(`Child: ${current.child.name}`);
-        }
-        current = current.child;
-      }
-    }
-  }
-  
-  const gilberto = new Person("Gilberto Gil", 79);
-  const bia = new Person("Bia Gil", 50);
-  gilberto.child = bia;
-  
-  const familyList = new FamilyLinkedList();
-  familyList.append(gilberto);
-  
-  // Imprimindo as informações da lista
-  familyList.print();
+    return -1;
+}
+
+const arrayBinario = [15,8,10,25,12,30,5,20,18,7];
+const verificarElemento = 20;
+const indiceEncontrado = buscaBinaria (arrayBinario, verificarElemento);
+if (indiceEncontrado !== -1){
+    console.log(`O elemento ${verificarElemento} foi encontrado no indice ${indiceEncontrado}`);
+} else {
+    console.log(`O elemento ${verificarElemento} não está na lista.`);
+}
