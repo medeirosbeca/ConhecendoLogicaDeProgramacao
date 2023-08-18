@@ -1,47 +1,54 @@
-/* Crie uma lista encadeada em que cada elemento representa uma pessoa. Ela precisa conter informações
+/* Crie uma lista encadeada em que cada elemento representa uma pessoa. Ela precisa conter informações 
 como nome, idade e referência ao filho dela.*/
 
+//Elemento de cada pessoa:
+class Pessoa {
+    constructor(nome, idade) {
+        this.nome = nome;
+        this.idade = idade;
+        this.filho = null;
+    }
+}
 
-//Estrutura do Nó:
-class ConstruindoNo {
-    constructor() {
-      this.value = null;
-      this.next = null;
+//Criando a lista:
+class ListaPessoa {
+    constructor (){
+        this.cabeca = null; //Começa a cabeça(topo da lista) recebendo vazio.
     }
-    getValue() {
-      return this.value;
-    }
-    setValue(value) {
-      this.value = value;
-    }
-    getNext() {
-      return this.next;
-    }
-    setNext(next) {
-      this.next = next;
+    
+//Adicionar informações das pessoas: 
+  adicionar(nome, idade) {
+    const novoNoPessoa = new Pessoa (nome, idade);
+    if (this.cabeca === null){
+        this.cabeca = novoNoPessoa;
+    } else {
+        let posicaoAtual = this.cabeca;
+        while (posicaoAtual.filho !== null) {
+            posicaoAtual = posicaoAtual.filho;
+        }
+        posicaoAtual.filho = novoNoPessoa;
     }
   }
 
-//Estrutura da Lista:
-class ListaEncadeada {
-    constructor() {
-        this.head = null;
+  imprimir() {
+    let posicaoAtual = this.cabeca;
+    while (posicaoAtual) {
+      console.log(`Nome: ${posicaoAtual.nome}, Idade: ${posicaoAtual.idade}`);
+      if (posicaoAtual.filho) {
+        console.log(`Filho: ${posicaoAtual.filho.nome}`);
+      }
+      posicaoAtual = posicaoAtual.filho;
     }
-    add(value) {
-        let node = new Node();
-        node.setValue(value);
-        node.setNext(this.head);
-        this.head = node;
-    }
-    toString() {
-        let sb = new StringBuffer();
-        sb.append("[");
-        let ponteiro = this.head;
-        while (ponteiro !== null) {
-            sb.append(ponteiro.getValue() + " ");
-            ponteiro = ponteiro.getNext();
-        }
-        sb.append("]");
-        return sb.toString();
-    }
+  }
 }
+
+//Exemplo de retornar todos os valores da lista: 
+const gilberto = new Pessoa('Gilberto', 79);
+const preta = new Pessoa('Preta', 50);
+gilberto.filho = preta;
+
+const familiaLista = new ListaPessoa();
+  familiaLista.adicionar(gilberto);
+  
+  // Imprimindo as informações da lista
+  familiaLista.imprimir();
