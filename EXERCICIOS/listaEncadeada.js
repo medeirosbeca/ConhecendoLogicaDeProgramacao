@@ -17,19 +17,19 @@ class ListaPessoa {
     }
     
 //Adicionar informações das pessoas: 
-  adicionar(nome, idade) {
-    const novoNoPessoa = new Pessoa (nome, idade);
-    if (this.cabeca === null){
-        this.cabeca = novoNoPessoa;
-    } else {
-        let posicaoAtual = this.cabeca;
-        while (posicaoAtual.filho !== null) {
-            posicaoAtual = posicaoAtual.filho;
-        }
-        posicaoAtual.filho = novoNoPessoa;
-    }
+adicionar(pessoa) {
+  if (!this.cabeca) {
+    this.cabeca = pessoa;
+    return;
+  }
+  let posicaoAtual = this.cabeca;
+  while (posicaoAtual.filho) {
+    posicaoAtual = posicaoAtual.filho;
+  }
+    posicaoAtual.filho = pessoa;
   }
 
+// Para imprimir a lista:
   imprimir() {
     let posicaoAtual = this.cabeca;
     while (posicaoAtual) {
@@ -44,11 +44,11 @@ class ListaPessoa {
 
 //Exemplo de retornar todos os valores da lista: 
 const gilberto = new Pessoa('Gilberto', 79);
-const preta = new Pessoa('Preta', 50);
+const preta = new Pessoa('Preta', 49);
 gilberto.filho = preta;
 
 const familiaLista = new ListaPessoa();
   familiaLista.adicionar(gilberto);
   
-  // Imprimindo as informações da lista
-  familiaLista.imprimir();
+// Imprimindo as informações da lista
+familiaLista.imprimir();
