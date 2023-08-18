@@ -43,7 +43,7 @@ function buscaBinaria (array, verificarNumero){
     return -1;
 }
 
-const arrayBinario = [15,8,10,25,12,30,5,20,18,7]; 
+const arrayBinario = [15,8,10,25,12,30,5,20,18,7];  
 const verificarElemento = 20;
 const indiceEncontrado = buscaBinaria (arrayBinario, verificarElemento);
 if (indiceEncontrado !== -1){
